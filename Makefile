@@ -17,38 +17,29 @@ OBJS = $(SRCS:.c=.o)
 NAME		= libftprintf.a
 LIBFT		= libft
 CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra -I
-RM			= rm -f
-AR			= ar rcs
+CFLAGS		= -Wall -Werror -Wextra
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ)
+$(NAME):	$(OBJS)
 			make -C $(LIBFT)
 			cp libft/libft.a .
 			mv libft.a $(NAME)
-			$(AR) $(NAME) $(OBJ)
-			@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
+			ar rcs $(NAME) $(OBJS)
+			rm -rf $(OBJS)
 
 %.o: %.c
-		$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-
-$(OBJF):
-			mkdir -p $(OBJ_DIR)
+		$(CC) $(CFLAGS) -c $< -o $@ -Ilibft -I.
 
 clean:
-			$(RM) -rf
-			@make clean -C $(LIBFT)
-			@echo "$(BLUE)ft_printf object files cleaned!$(DEF_COLOR)"
+			rm -rf $(OBJS)
+			make clean -C $(LIBFT)
 
 fclean:		clean
-			@$(RM) -f $(NAME)
-			@$(RM) -f $(LIBFT)/libft.a
-			@echo "$(CYAN)ft_printf executable files cleaned!$(DEF_COLOR)"
-			@echo "$(CYAN)libft executable files cleaned!$(DEF_COLOR)"
+			rm -rf $(NAME)
+			make fclean -C $(LIBFT)
 
 re:			fclean all
-			@echo "$(GREEN)Cleaned and rebuilt everything for ft_printf!$(DEF_COLOR)"
 
 norm:
 			@norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
