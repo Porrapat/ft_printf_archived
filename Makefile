@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+         #
+#    By: ppetchda <ppetchda@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/09/06 09:51:37 by ajordan-          #+#    #+#              #
-#    Updated: 2021/10/20 10:21:42 by ajordan-         ###   ########.fr        #
+#    Created: 2022/03/03 09:51:37 by ppetchda          #+#    #+#              #
+#    Updated: 2022/03/03 10:21:42 by ppetchda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
