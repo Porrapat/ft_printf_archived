@@ -10,7 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-#Variables
+SRCS = ft_printf.c
+
+OBJS = $(SRCS:.c=.o)
 
 NAME		= libftprintf.a
 LIBFT		= libft
@@ -19,36 +21,23 @@ CFLAGS		= -Wall -Werror -Wextra -I
 RM			= rm -f
 AR			= ar rcs
 
-#Sources
-
-SRC_FILES	=	ft_printf
-
-
-SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
-OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
-
-###
-
-OBJF		=	.cache_exists
-
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-			@make -C $(LIBFT)
-			@cp libft/libft.a .
-			@mv libft.a $(NAME)
-			@$(AR) $(NAME) $(OBJ)
+			make -C $(LIBFT)
+			cp libft/libft.a .
+			mv libft.a $(NAME)
+			$(AR) $(NAME) $(OBJ)
 			@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
-			@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-			@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+%.o: %.c
+		$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(OBJF):
-			@mkdir -p $(OBJ_DIR)
+			mkdir -p $(OBJ_DIR)
 
 clean:
-			@$(RM) -rf $(OBJ_DIR)
+			$(RM) -rf
 			@make clean -C $(LIBFT)
 			@echo "$(BLUE)ft_printf object files cleaned!$(DEF_COLOR)"
 
@@ -64,4 +53,6 @@ re:			fclean all
 norm:
 			@norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
 
-.PHONY:		all clean fclean re norm
+test:
+			echo "Testing"
+.PHONY:		all clean fclean re norm test
