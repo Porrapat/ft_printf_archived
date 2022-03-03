@@ -45,5 +45,10 @@ norm:
 			@norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
 
 test:
-			echo "Testing"
+			$(CC) $(CFLAGS) $(NAME) main.c -o a.out -Ilibft -I.
+			./a.out
+
+testclean:
+			rm -rf a.out
+
 .PHONY:		all clean fclean re norm test
