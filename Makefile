@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 SRCS = ft_printf.c \
-		ft_printf_utils.c
+		ft_printf_utils_general.c
 
 OBJS = $(SRCS:.c=.o)
 

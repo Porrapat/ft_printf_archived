@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-int	ft_printchar(int c)
+int	ft_print_char(int c)
 {
 	ft_putchar_fd(c, 1);
 	return (1);
 }
 
-int	ft_printstr(char *str)
+int	ft_print_str(char *str)
 {
 	int	i;
 
@@ -29,23 +29,23 @@ int	ft_printstr(char *str)
 		return (6);
 	}
 	while (str[i])
-		i += ft_printchar(str[i]);
+		i += ft_print_char(str[i]);
 	return (i);
 }
 
-int	ft_printnbr(int n)
+int	ft_print_nbr(int n)
 {
 	int		len;
 	char	*num;
 
 	len = 0;
 	num = ft_itoa(n);
-	len = ft_printstr(num);
+	len = ft_print_str(num);
 	free(num);
 	return (len);
 }
 
-int	ft_printpercent(void)
+int	ft_print_percent(void)
 {
-	return (ft_printchar('%'));
+	return (ft_print_char('%'));
 }
