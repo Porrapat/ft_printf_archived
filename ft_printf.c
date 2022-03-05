@@ -12,14 +12,6 @@
 
 #include "ft_printf.h"
 
-// int	ft_printf(const char *str, ...)
-// {
-// 	// printf("%s", str);
-// 	ft_putstr_fd((char *)str, 1);
-// 	return (0);
-// }
-
-
 static int	ft_choose_formats(va_list args, const char format)
 {
 	int	print_length;

@@ -3,34 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: ppetchda <ppetchda@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 13:40:58 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/10/19 14:53:21 by ajordan-         ###   ########.fr       */
+/*   Created: 2022/03/03 09:51:37 by ppetchda          #+#    #+#             */
+/*   Updated: 2022/03/03 10:21:42 by ppetchda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
-#include <stdlib.h>
 
 int	ft_printchar(int c)
 {
 	ft_putchar_fd(c, 1);
 	return (1);
 }
-
-// void	ft_putstr(char *str)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		write(1, &str[i], 1);
-// 		i++;
-// 	}
-// }
 
 int	ft_printstr(char *str)
 {
@@ -44,7 +30,6 @@ int	ft_printstr(char *str)
 	}
 	while (str[i])
 	{
-		// write(1, &str[i], 1);
 		ft_printchar(str[i]);
 		i++;
 	}
