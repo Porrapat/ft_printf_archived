@@ -27,8 +27,8 @@ static int	ft_choose_formats(va_list args, const char format)
 		print_length += ft_print_nbr(va_arg(args, int));
 	else if (format == 'u')
 		print_length += ft_print_unsigned(va_arg(args, unsigned int));
-	// else if (format == 'x' || format == 'X')
-	// 	print_length += ft_print_hex(va_arg(args, unsigned int), format);
+	else if (format == 'x' || format == 'X')
+		print_length += ft_print_hex(va_arg(args, unsigned int), format);
 	else if (format == '%')
 		print_length += ft_print_percent();
 	return (print_length);
