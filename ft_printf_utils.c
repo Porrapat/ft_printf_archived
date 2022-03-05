@@ -29,24 +29,21 @@ int	ft_printstr(char *str)
 		return (6);
 	}
 	while (str[i])
-	{
-		ft_printchar(str[i]);
-		i++;
-	}
+		i += ft_printchar(str[i]);
 	return (i);
 }
 
-// int	ft_printnbr(int n)
-// {
-// 	int		len;
-// 	char	*num;
+int	ft_printnbr(int n)
+{
+	int		len;
+	char	*num;
 
-// 	len = 0;
-// 	num = ft_itoa(n);
-// 	len = ft_printstr(num);
-// 	free(num);
-// 	return (len);
-// }
+	len = 0;
+	num = ft_itoa(n);
+	len = ft_printstr(num);
+	free(num);
+	return (len);
+}
 
 int	ft_printpercent(void)
 {
