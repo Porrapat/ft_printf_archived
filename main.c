@@ -3,7 +3,7 @@
 
 int main()
 {
-    printf("%s", NULL);
+    // printf("%s", NULL);
     // ft_printf("%s", NULL);
     printf("Hello World\n");
     // printf("%s\n", (char *)NULL);

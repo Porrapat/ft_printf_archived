@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppetchda <ppetchda@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,24 +10,53 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdint.h>
-# include "libft.h"
+static int	ft_unsigned_num_len(unsigned	int num)
+{
+	int	len;
 
-int		ft_printf(const char *format, ...);
-int		ft_print_char(int c);
-int		ft_print_str(char *str);
-// int		ft_print_ptr(unsigned long long ptr);
-int		ft_print_nbr(int n);
-int		ft_print_unsigned(unsigned int n);
-int		ft_print_hex(unsigned int num, const char format);
-int		ft_print_percent(void);
+	len = 0;
+	while (num != 0)
+	{
+		len++;
+		num = num / 10;
+	}
+	return (len);
+}
 
-// void	ft_put_ptr(uintptr_t num);
-// int		ft_ptr_len(uintptr_t num);
+static char	*ft_uitoa(unsigned int n)
+{
+	char	*num;
+	int		len;
 
-#endif
+	len = ft_unsigned_num_len(n);
+	num = (char *)malloc(sizeof(char) * (len + 1));
+	if (!num)
+		return (0);
+	num[len] = '\0';
+	while (n != 0)
+	{
+		num[len - 1] = n % 10 + 48;
+		n = n / 10;
+		len--;
+	}
+	return (num);
+}
+
+int	ft_print_unsigned(unsigned int n)
+{
+	int		print_length;
+	char	*num;
+
+	print_length = 0;
+	if (n == 0)
+		print_length += write(1, "0", 1);
+	else
+	{
+		num = ft_uitoa(n);
+		print_length += ft_print_str(num);
+		free(num);
+	}
+	return (print_length);
+}

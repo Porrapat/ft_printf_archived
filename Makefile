@@ -11,7 +11,9 @@
 # **************************************************************************** #
 
 SRCS = ft_printf.c \
-		ft_printf_utils_general.c
+		ft_printf_utils_general.c \
+		ft_printf_utils_unsigned.c \
+		ft_printf_utils_hex.c
 
 OBJS = $(SRCS:.c=.o)
 
