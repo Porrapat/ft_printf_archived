@@ -51,11 +51,4 @@ norm:
 normlibft:
 			norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
 
-test:
-			$(CC) $(CFLAGS) main.c -o a.out -Ilibft -I. -L. -lftprintf
-			./a.out
-
-testclean:
-			rm -rf a.out
-
 .PHONY:		all clean fclean re norm normlibft test
