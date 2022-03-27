@@ -22,7 +22,7 @@ static int	ft_choose_formats(va_list args, const char format)
 	else if (format == 's')
 		print_length += ft_print_str(va_arg(args, char *));
 	else if (format == 'p')
-		print_length += ft_print_ptr(va_arg(args, unsigned long long));
+		print_length += ft_print_ptr(va_arg(args, unsigned long));
 	else if (format == 'd' || format == 'i')
 		print_length += ft_print_nbr(va_arg(args, int));
 	else if (format == 'u')
